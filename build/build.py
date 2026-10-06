@@ -39,6 +39,7 @@ CSS = r"""
 :root[data-theme="dark"]{--bg:#15121F;--card:#1F1B2E;--ink:#F3EFFA;--muted:#B3ACC6;--line:#332D47;--cream:#2A2433;--night:#0E0B16}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Figtree,system-ui,-apple-system,sans-serif}
+img{max-width:100%;height:auto;display:block}
 a{color:var(--accent)}a:hover{color:var(--accent-d)}
 h1,h2,h3{font-family:"Young Serif",Georgia,serif;font-weight:400;line-height:1.15;letter-spacing:-.01em}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}.narrow{max-width:720px}
@@ -46,7 +47,7 @@ h1,h2,h3{font-family:"Young Serif",Georgia,serif;font-weight:400;line-height:1.1
 header.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 header.top .wrap{display:flex;align-items:center;gap:16px;height:62px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font:400 22px "Young Serif",serif}
-.brand img{width:34px;height:34px;border-radius:9px}
+.brand img{width:34px;height:34px;flex:none;border-radius:9px}
 nav.links{margin-left:auto;display:flex;gap:18px;align-items:center}
 nav.links a{color:var(--ink);text-decoration:none;font-weight:600;font-size:15px}
 nav.links a.btn{color:#fff}
@@ -64,8 +65,8 @@ nav.links a.btn{color:#fff}
 .hero p.lead{font-size:20px;color:var(--muted);max-width:30em;margin:0 0 26px}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 .hero .note{font-size:14px;color:var(--muted);margin-top:14px}
-.phones{position:relative;height:560px}
-.phones img{position:absolute;width:260px;border-radius:28px;box-shadow:0 30px 60px rgba(30,26,54,.25)}
+.phones{position:relative;height:610px}
+.phones img{position:absolute;width:260px;height:auto;aspect-ratio:540/1170;border-radius:28px;box-shadow:0 30px 60px rgba(30,26,54,.25)}
 .phones img:nth-child(1){left:0;top:30px;transform:rotate(-5deg)}
 .phones img:nth-child(2){right:0;top:0;transform:rotate(4deg)}
 .tilestrip{display:flex;gap:8px;margin:0 0 18px}
@@ -80,7 +81,7 @@ section.band p.sub{color:var(--muted);font-size:19px;max-width:36em;margin:0 0 3
 .days p{margin:0;color:var(--muted);font-size:15px}
 .dark{background:var(--night);color:#F3EFFA}.dark p.sub{color:#D4CDE6}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.split img{width:100%;max-width:340px;border-radius:26px;justify-self:center;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.split img{width:100%;max-width:340px;height:auto;aspect-ratio:540/1170;border-radius:26px;justify-self:center;box-shadow:0 30px 60px rgba(0,0,0,.35)}
 .checks{list-style:none;padding:0;margin:0}.checks li{padding:8px 0 8px 32px;position:relative}
 .checks li:before{content:"";position:absolute;left:0;top:13px;width:18px;height:18px;border-radius:50%;background:var(--accent);box-shadow:inset 0 0 0 5px color-mix(in srgb,var(--accent) 60%,#fff)}
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -113,7 +114,7 @@ article.doc td,article.doc th{border:1px solid var(--line);padding:8px 10px;text
 article.doc th{background:var(--card)}
 .crumbs{font-size:14px;color:var(--muted);padding-top:22px}.crumbs a{color:var(--muted)}
 .appbox{display:flex;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin:32px 0}
-.appbox img{width:64px;height:64px;border-radius:15px}.appbox p{margin:0;font-size:15px;color:var(--muted)}.appbox b{color:var(--ink)}
+.appbox img{width:64px;height:64px;flex:none;border-radius:15px}.appbox p{margin:0;font-size:15px;color:var(--muted)}.appbox b{color:var(--ink)}
 /* tiles */
 .tilerow{margin:22px 0}.tilerow figcaption{font-size:14px;color:var(--muted);margin-top:8px}
 .tiles{display:flex;flex-wrap:wrap;gap:10px}.grp{display:flex;gap:4px}
@@ -125,11 +126,11 @@ article.doc th{background:var(--card)}
 .tile.J{background:linear-gradient(160deg,#FFF6D9,#FFFDF7)}.tile.J .glyph{color:var(--tg);font-size:17px}.tile.J .s{color:var(--tg)}
 .tile.lg{width:62px;height:84px;border-radius:10px}.tile.lg .glyph{font-size:34px}.tile.lg .s{font-size:10px}.tile.lg.O .soap{width:28px;height:42px;border-width:4px}
 @media (max-width:820px){
- .hero .wrap,.split{grid-template-columns:1fr}.phones{height:440px;max-width:420px;margin:0 auto;width:100%}
+ .hero .wrap,.split{grid-template-columns:1fr}.phones{height:490px;max-width:420px;margin:0 auto;width:100%}
  .phones img{width:205px}.plans{grid-template-columns:1fr}footer .cols{grid-template-columns:1fr 1fr}
  nav.links a:not(.btn){display:none}.hero{padding-top:32px}
 }
-@media (max-width:400px){.phones img{width:170px}.phones{height:370px}}
+@media (max-width:400px){.phones img{width:170px}.phones{height:410px}}
 """
 
 APPLE = '<svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>'
@@ -173,7 +174,7 @@ def page(path, title, desc, body, depth=0, jsonld=None, og_type="website"):
 ORG = {"@type": "Organization", "name": "Geddes Ventures LLC", "url": DOMAIN, "email": EMAIL}
 
 # ------------------------------------------------------------------ landing
-DAYS = [("Day 1","How mahjong works","The whole game in two minutes, with real tiles moving on screen.",True),
+DAYS = [("Day 1","How mahjong works","What the game is, how a turn goes, and how you win. Real tiles move on screen.",True),
         ("Day 2","Spot the tiles","Bams, craks, dots, winds and dragons. You will name them at a glance.",False),
         ("Day 3","Jokers and the rules","Where jokers can go and where they can't. The rule that loses most beginner games.",False),
         ("Day 4","Read the card","Turn any line on the card into the tiles it means.",False),
