@@ -1,0 +1,13 @@
+<g>
+<path d="M300 512 L292 572 M330 508 L334 570 M276 572 H308 M318 570 H350" stroke="#5E3B20" stroke-width="10" stroke-linecap="round" fill="none"/>
+<path d="M172 448 L70 530 L100 476 L58 462 L166 412 Z" fill="#5E3B20"/>
+<path d="M150 430 C150 330 240 280 330 300 C400 315 440 370 425 425 C408 500 322 535 250 524 C198 516 158 482 150 430 Z" fill="#8A5A34"/>
+<path d="M212 474 C250 432 342 424 412 446 C394 505 322 532 256 522 C230 518 214 498 212 474 Z" fill="#E8C9A0"/>
+<path d="M182 404 C222 338 318 326 352 382 C330 436 254 452 182 404 Z" fill="#5E3B20"/>
+<path d="M214 398 C250 370 300 366 330 384" stroke="#8A5A34" stroke-width="7" fill="none" stroke-linecap="round"/>
+<circle cx="382" cy="272" r="74" fill="#8A5A34"/>
+<path d="M314 254 C326 204 404 186 452 236 C424 226 362 226 314 254 Z" fill="#5E3B20"/>
+<ellipse cx="372" cy="300" rx="34" ry="22" fill="#E8C9A0"/>
+<circle cx="404" cy="258" r="13" fill="#1E1A36"/><circle cx="408" cy="254" r="4.5" fill="#FFFDF7"/>
+<path d="M448 262 L496 276 L448 292 Z" fill="#E0A23A"/>
+</g>

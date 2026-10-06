@@ -1,0 +1,23 @@
+# Sparrow
+
+> Sparrow is an iPhone app that teaches American mahjong (the National Mah Jongg League style, with a yearly card, jokers and the Charleston) to total beginners in seven short daily lessons, plus an unlimited practice table with an expert who reviews every move. Made by Geddes Ventures LLC. Not affiliated with the National Mah Jongg League.
+
+- Free: day one and one practice hand. Sparrow Plus: $39.99 per year with a 7 day free trial, $7.99 per month, or $79.99 once.
+- No account, no ads, no tracking.
+- App Store: https://apps.apple.com/app/id6819738312
+
+## Guides
+
+- [How do you learn American mahjong fast?](https://sparrowmahjong.app/guides/how-to-learn-american-mahjong-fast): Learn the tiles, then the card, then the Charleston, and play real hands early. A short plan for total beginners with a mahj night coming up.
+- [What is the Charleston in mahjong?](https://sparrowmahjong.app/guides/what-is-the-charleston-in-mahjong): The Charleston is the tile passing before American mahjong starts. Here is the order, the blind pass, and what to give away as a beginner.
+- [How do jokers work in American mahjong?](https://sparrowmahjong.app/guides/how-do-jokers-work-in-american-mahjong): Jokers fill any group of three or more tiles, never a single or a pair. Here is how the joker swap works and why a discarded joker is dead.
+- [How do you read the American mahjong card?](https://sparrowmahjong.app/guides/how-to-read-the-mahjong-card): Each line on the card is one winning hand. Here is what the colors, the X and C, the zeros and the numbers mean, explained for first timers.
+- [What is the difference between American and Chinese mahjong?](https://sparrowmahjong.app/guides/american-vs-chinese-mahjong): American mahjong uses jokers, a yearly card of set hands, and the Charleston. Chinese mahjong has none of those. Here is what changes at the table.
+- [What should I know before my first mahjong night?](https://sparrowmahjong.app/guides/first-mahjong-night-what-to-know): Bring a current card, learn the joker rule, ask about house rules and money, and tell the table you are new. A short checklist for first timers.
+
+## Policies
+
+- [Privacy](https://sparrowmahjong.app/privacy)
+- [Terms](https://sparrowmahjong.app/terms)
+- [Subscriptions](https://sparrowmahjong.app/subscriptions)
+- [Support](https://sparrowmahjong.app/support)
