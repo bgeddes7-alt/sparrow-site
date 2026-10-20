@@ -25,6 +25,7 @@ export default {
   async fetch(request, env) {
     const p = new URL(request.url).pathname;
     if (p === "/mcp" || p === "/mcp/") return mcp(request);
+    if (p === "/.well-known/openai-apps-challenge") return new Response("Oq9Az0-q4dFX4_97IV2cyUvuYhMgA3MARB4VZXV9JFQ", { headers: { "Content-Type": "text/plain", ...SEC } });
     return env.ASSETS.fetch(request);
   },
 };
