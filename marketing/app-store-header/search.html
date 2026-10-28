@@ -1,0 +1,42 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:YS;src:url(youngserif-400.woff2)}
+@font-face{font-family:FT;src:url(figtree-800.woff2);font-weight:800}
+html,body{margin:0;width:1920px;height:1280px;overflow:hidden;background:#15121F}
+.stage{position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 30%,#2A2140 0%,#15121F 70%)}
+.row{position:absolute;left:50%;top:150px;transform:translateX(-50%);display:flex;gap:20px;perspective:1600px}
+.tile{width:124px;height:168px;position:relative}
+.inner{position:absolute;inset:0;transform-style:preserve-3d}
+.face{position:absolute;inset:0;border-radius:18px;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:FT,sans-serif;line-height:1;color:#1E1A36}
+.front{background:#FFFDF7;box-shadow:0 7px 0 #BDB39A,0 16px 30px rgba(0,0,0,.45)}
+.front svg{position:absolute;inset:0;width:100%;height:100%}
+.front.J{background:linear-gradient(160deg,#FFF1C7,#FFFDF7)}
+.front.J .glyph,.front.J .s{color:#B07A0C}
+.glyph{font-size:66px;font-weight:700;font-family:serif}
+.front.J .glyph{font-size:58px}
+.s{font-size:17px;font-weight:800;letter-spacing:.08em;margin-top:8px}
+.back{transform:rotateY(180deg);background:linear-gradient(160deg,#E2507F,#B92E5D);box-shadow:0 7px 0 #7E1E40,0 16px 30px rgba(0,0,0,.45)}
+.back .bd{position:absolute;inset:12px;border:3px solid rgba(255,240,215,.55);border-radius:10px}
+.glint{position:absolute;inset:0;border-radius:18px;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.85) 50%,transparent 65%);background-size:300% 100%;opacity:0;backface-visibility:hidden}
+h1{position:absolute;left:0;right:0;top:400px;margin:0;text-align:center;font-family:YS,serif;font-weight:400;font-size:84px;color:#F3EFFA;letter-spacing:-.01em}
+.row{top:300px;transform:translateX(-50%) scale(1.4);transform-origin:top center}h1{top:740px;font-size:112px}.stage{background:radial-gradient(ellipse 60% 60% at 50% 35%,#2A2140 0%,#15121F 70%)}</style></head><body><div class="stage"></div><div class="row"><div class="tile" id="t0"><div class="inner"><div class="face front "><svg class="art" viewBox="0 0 34 46" aria-hidden="true"><rect x="9.2" y="8.0" width="3.6" height="10" rx="1.6" fill="#23845A"/><rect x="8.8" y="12.4" width="4.4" height="1.2" fill="#FFFDF7"/><rect x="21.2" y="8.0" width="3.6" height="10" rx="1.6" fill="#23845A"/><rect x="20.8" y="12.4" width="4.4" height="1.2" fill="#FFFDF7"/><rect x="15.2" y="20.0" width="3.6" height="10" rx="1.6" fill="#C9343A"/><rect x="14.8" y="24.4" width="4.4" height="1.2" fill="#FFFDF7"/><rect x="9.2" y="32.0" width="3.6" height="10" rx="1.6" fill="#23845A"/><rect x="8.8" y="36.4" width="4.4" height="1.2" fill="#FFFDF7"/><rect x="21.2" y="32.0" width="3.6" height="10" rx="1.6" fill="#23845A"/><rect x="20.8" y="36.4" width="4.4" height="1.2" fill="#FFFDF7"/><text x="3.2" y="8.2" font-size="6.5" font-weight="800" fill="#1E1A36" font-family="system-ui,sans-serif">5</text></svg></div><div class="face back"><div class="bd"></div></div></div></div><div class="tile" id="t1"><div class="inner"><div class="face front "><svg class="art" viewBox="0 0 34 46" aria-hidden="true"><text x="17" y="21" text-anchor="middle" font-size="14" font-weight="700" fill="#1E1A36" font-family="serif">三</text><text x="17" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#C9343A" font-family="serif">萬</text><text x="3.2" y="8.2" font-size="6.5" font-weight="800" fill="#1E1A36" font-family="system-ui,sans-serif">3</text></svg></div><div class="face back"><div class="bd"></div></div></div></div><div class="tile" id="t2"><div class="inner"><div class="face front "><svg class="art" viewBox="0 0 34 46" aria-hidden="true"><circle cx="11" cy="12" r="4.4" fill="none" stroke="#2B58C9" stroke-width="1.6"/><circle cx="11" cy="12" r="1.85" fill="#2B58C9"/><circle cx="23" cy="12" r="4.4" fill="none" stroke="#2B58C9" stroke-width="1.6"/><circle cx="23" cy="12" r="1.85" fill="#2B58C9"/><circle cx="11" cy="25" r="4.4" fill="none" stroke="#2B58C9" stroke-width="1.6"/><circle cx="11" cy="25" r="1.85" fill="#2B58C9"/><circle cx="23" cy="25" r="4.4" fill="none" stroke="#2B58C9" stroke-width="1.6"/><circle cx="23" cy="25" r="1.85" fill="#2B58C9"/><circle cx="11" cy="38" r="4.4" fill="none" stroke="#2B58C9" stroke-width="1.6"/><circle cx="11" cy="38" r="1.85" fill="#2B58C9"/><circle cx="23" cy="38" r="4.4" fill="none" stroke="#2B58C9" stroke-width="1.6"/><circle cx="23" cy="38" r="1.85" fill="#2B58C9"/><text x="3.2" y="8.2" font-size="6.5" font-weight="800" fill="#1E1A36" font-family="system-ui,sans-serif">6</text></svg></div><div class="face back"><div class="bd"></div></div></div></div><div class="tile" id="t3"><div class="inner"><div class="face front J"><span class="glyph">★</span><span class="s">JOKER</span></div><div class="face back"><div class="bd"></div></div></div></div><div class="tile" id="t4"><div class="inner"><div class="face front "><span class="glyph" style="color:#C9343A">中</span><span class="s" style="color:#C9343A">RED</span></div><div class="face back"><div class="bd"></div></div></div></div><div class="tile" id="t5"><div class="inner"><div class="face front "><span class="glyph" style="color:#23845A">發</span><span class="s" style="color:#23845A">GREEN</span></div><div class="face back"><div class="bd"></div></div></div></div><div class="tile" id="t6"><div class="inner"><div class="face front "><span class="glyph">北</span><span class="s">NORTH</span></div><div class="face back"><div class="bd"></div></div></div></div></div><h1 id="h">Learn mahjong in seven days.</h1>
+<script>
+const N=7,T=12;
+const ease=p=>p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
+const cl=x=>Math.max(0,Math.min(1,x));
+document.getElementById('t3').querySelector('.front').insertAdjacentHTML('beforeend','<div class="glint" id="g"></div>');
+window.render=t=>{
+ for(let i=0;i<N;i++){
+  const up=ease(cl((t-0.5-i*0.32)/0.55));
+  const dn=ease(cl((t-9.9-i*0.2)/0.5));
+  const p=up-dn;               // 0 = back, 1 = front
+  const arc=Math.sin(Math.PI*cl((t-0.5-i*0.32)/0.55))+Math.sin(Math.PI*cl((t-9.9-i*0.2)/0.5));
+  document.querySelector('#t'+i+' .inner').style.transform=`translateY(${-26*arc}px) rotateY(${180-180*p}deg)`;
+ }
+ const g=document.getElementById('g'),gp=cl((t-3.4)/0.9);
+ g.style.opacity=gp>0&&gp<1?1:0; g.style.backgroundPosition=`${100-100*gp}% 0`;
+ const h=document.getElementById('h');
+ const hi=ease(cl((t-3.0)/0.8)), ho=ease(cl((t-9.4)/0.6)), hv=hi-ho;
+ h.style.opacity=hv; h.style.transform=`translateY(${18*(1-hi)}px)`;
+};
+render(0);
+</script></body></html>
