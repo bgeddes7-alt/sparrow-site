@@ -1,0 +1,5 @@
+01 (posted Oct 28): Save this for the night before mahj. Which one would've tripped you up? #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong
+02 (post Oct 29 AM): Screenshot this before mahj night. Which part of the card threw you? #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong
+03 (post Oct 29 PM): Do these and nobody will guess it's your first night. Which one didn't you know? #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong
+Render: copy site/fonts/*.woff2, site/img/icon-512.png, 01-home.jpg, 02-story.jpg, 04-table_expert.jpg next to the html, then: node r.js 02
+Rule source: https://sites.google.com/site/mahjrules/home/rules
