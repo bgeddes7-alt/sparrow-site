@@ -3,3 +3,6 @@
 03 (post Oct 29 PM): Do these and nobody will guess it's your first night. Which one didn't you know? #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong
 Render: copy site/fonts/*.woff2, site/img/icon-512.png, 01-home.jpg, 02-story.jpg, 04-table_expert.jpg next to the html, then: node r.js 02
 Rule source: https://sites.google.com/site/mahjrules/home/rules
+04 (post Oct 30 AM): The Charleston isn't as scary as it looks. Save this for your first game. Which pass confuses you most? #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong
+05 (post Oct 30 PM): Jokers can make or break your hand. Save this. Did you know the last one? #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong
+Rule source 04-05: https://en.wikipedia.org/wiki/American_mahjong (blind pass, second Charleston by agreement, courtesy 0-3, no jokers passed, 152 tiles)
