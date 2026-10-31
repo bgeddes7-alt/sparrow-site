@@ -1,0 +1,7 @@
+Formats that replace the plain text-list slideshows (Oct 31). Rotate; never two of the same in a row.
+A. Secret plan: night-by-night prep with a real app screenshot on each slide (10).
+B. Can you call it?: question slide, then answer slide, 5 rounds, score in caption (11).
+C. Table talk: what they say at mahj night vs what it means (12).
+D. Myth vs rule: "Everyone at your table thinks X. The rule is Y." (verified rules only).
+E. Rack check: show a real rack/hand from the practice table screenshot, ask "what do you pass/throw?", answer next slide.
+Every rule claim cited in captions.txt. You-facing app voice, no em dashes.

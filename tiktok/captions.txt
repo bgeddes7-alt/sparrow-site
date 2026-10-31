@@ -12,3 +12,8 @@ Rule source 06-07: https://en.wikipedia.org/wiki/American_mahjong (19x2 wall row
 08: Every tile in the set, explained. Save this before your first game. Which tile still confuses you? #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong
 09: Stop staring at your rack. Here's how to pick a hand. Which part takes you longest? #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong
 Rule source 08: 108 suit tiles + 16 winds + 12 dragons + 8 flowers + 8 jokers = 152 (Wikipedia American mahjong); dragon/suit pairing per NMJL convention. 09 is strategy, only rule claim is jokers not in pairs.
+--- New formats (Oct 31): real app screenshots, Q/A quiz, glossary. Render with: node r2.js NN (renders every section). Screens: ph-01..04.jpg cropped from site/img.
+10: Your secret 3-night plan before your first mahj night. Save it. Which night are you starting? #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong
+11: Be honest, what was your score out of 5? Save this for mahj night. #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong
+12: Save this so mahj night doesn't sound like a foreign language. Which word threw you the first time? #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong
+Rule source 11-12: poblib.librarycalendar.com JOKERS.pdf and CALLING & DECLARING MJ.pdf (no pair calls except for Mahj, C hands call only for Mahj, joker swap on your turn, jokers only Pung/Kong/Quint, called tile on top of rack or hand is dead); courtesy/blind pass per Wikipedia (04-05 source); Soap = 0 per 02.
