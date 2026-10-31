@@ -1,0 +1,158 @@
+<title>Post Queue</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* Layout: one column, account switch on top, the next post fills the screen, queue list below */
+:root{
+  --bg:#F6F5F2;--surface:#FFFFFF;--fg:#1B1A1F;--muted:#6B6875;--line:#E4E1DA;
+  --sparrow:#C7366B;--brace:#9A7A3C;--accent:var(--sparrow);--ok:#2F7D55;
+  --display:"Familjen Grotesk",system-ui,sans-serif;--body:"Atkinson Hyperlegible",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141317;--surface:#1D1C21;--fg:#F1EFEA;--muted:#A19DAA;--line:#2D2B33;--sparrow:#E2628F;--brace:#D2B272;--ok:#5DBB8A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141317;--surface:#1D1C21;--fg:#F1EFEA;--muted:#A19DAA;--line:#2D2B33;--sparrow:#E2628F;--brace:#D2B272;--ok:#5DBB8A;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.45}
+body.brace{--accent:var(--brace)}
+.wrap{max-width:560px;margin:0 auto;padding-block:16px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:20px}
+.switch{display:grid;grid-template-columns:1fr 1fr;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px;gap:4px}
+.switch button{font:700 16px var(--display);border:0;border-radius:9px;padding:10px;background:transparent;color:var(--muted);cursor:pointer}
+.switch button[aria-pressed="true"]{background:var(--accent);color:#fff}
+h1{font:700 26px/1.15 var(--display);margin:0;text-wrap:balance}
+.meta{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.cap{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.cap p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+.btn{font:700 16px var(--display);border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:10px;padding:11px 14px;cursor:pointer}
+.btn.solid{background:var(--accent);color:#fff}
+.btn:focus-visible,.switch button:focus-visible{outline:3px solid var(--fg);outline-offset:2px}
+.slides{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.slide{display:flex;flex-direction:column;gap:6px;min-width:0}
+.slide img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:var(--surface);display:block}
+.slide .btn{padding:8px;font-size:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row .btn{flex:1 1 140px}
+.note{color:var(--muted);font-size:14px;margin:0}
+.queue{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.queue div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.queue span:last-child{color:var(--muted);flex:none}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:24px;text-align:center;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.btn{transition:background .15s}}
+</style>
+
+<div class="wrap">
+  <div class="switch" role="group" aria-label="Account">
+    <button id="tab-sparrow" aria-pressed="true" data-acct="sparrow">Sparrow</button>
+    <button id="tab-brace" aria-pressed="false" data-acct="brace">BRACE</button>
+  </div>
+  <main id="main"></main>
+  <section>
+    <p class="meta" style="margin:0 0 6px">Up after this</p>
+    <div class="queue" id="queue"></div>
+  </section>
+  <p class="note" id="status">Loading posted status…</p>
+</div>
+
+<script>
+// Manifest: Claude adds new slideshows here on each republish.
+const POSTS = [
+  {id:"sparrow-06",acct:"sparrow",title:"Your first 2 minutes at the table",caption:"Your first two minutes at the table, start to finish. Save this. What do you still want explained? #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong"},
+  {id:"sparrow-07",acct:"sparrow",title:"You just made Mahjong. Now what?",caption:"Nobody tells you what happens after you win. Now you know. Have you made Mahjong yet? #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong"},
+  {id:"sparrow-08",acct:"sparrow",title:"Every tile in the set",caption:"Every tile in the set, explained. Save this before your first game. Which tile still confuses you? #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong"},
+  {id:"sparrow-09",acct:"sparrow",title:"How to pick your hand fast",caption:"Stop staring at your rack. Here's how to pick a hand. Which part takes you longest? #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong"},
+  {id:"brace-01",acct:"brace",title:"What have you promised back?",caption:"God has never broken a promise to you. What's yours back? Drop it below. #christiantiktok #christianteen #biblestudy #godspromises #faith"},
+  {id:"brace-02",acct:"brace",title:"What a faithful day looks like",caption:"Save this and try it for 7 days. Who's holding you to it? #christiantiktok #christianteen #faith #dailydevotional #godspromises"}
+];
+const SLIDES = 7;
+const img = (p,i) => `img/${p.id}-${i}.jpg`;
+
+let acct = "sparrow", posted = {}, db = null, downloads = null;
+try { const a = localStorage.getItem("acct"); if (a === "brace" || a === "sparrow") acct = a; } catch (e) {}
+
+const $ = s => document.querySelector(s);
+const status = t => { $("#status").textContent = t; };
+
+function render(){
+  document.body.className = acct;
+  document.querySelectorAll(".switch button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.acct === acct)));
+  const list = POSTS.filter(p => p.acct === acct && !posted[p.id]);
+  const main = $("#main"); main.innerHTML = "";
+  const q = $("#queue"); q.innerHTML = "";
+  if (!list.length){
+    main.innerHTML = `<div class="empty">Nothing waiting for ${acct === "brace" ? "BRACE" : "Sparrow"}. Ask Claude for more.</div>`;
+    return;
+  }
+  const p = list[0];
+  const head = document.createElement("div");
+  head.style.cssText = "display:flex;flex-direction:column;gap:16px";
+  head.innerHTML = `
+    <div><p class="meta" style="margin:0 0 4px">Next to post · #${p.id.split("-")[1]} · ${list.length} waiting</p><h1></h1></div>
+    <div class="cap"><p id="caption"></p><button class="btn" id="copy">Copy caption</button></div>
+    <div class="slides" id="slides"></div>
+    <div class="row">
+      <button class="btn" id="saveall"${downloads ? "" : " hidden"}>Save all 7</button>
+      <button class="btn solid" id="done">Mark posted</button>
+    </div>
+    <p class="note">Press and hold any slide to save it, or use its Save button.</p>`;
+  head.querySelector("h1").textContent = p.title;
+  head.querySelector("#caption").textContent = p.caption;
+  main.appendChild(head);
+  const grid = head.querySelector("#slides");
+  for (let i = 1; i <= SLIDES; i++){
+    const d = document.createElement("div"); d.className = "slide";
+    d.innerHTML = `<img alt="Slide ${i}" src="${img(p,i)}" loading="${i < 3 ? "eager" : "lazy"}"><button class="btn" data-i="${i}"${downloads ? "" : " hidden"}>Save ${i}</button>`;
+    grid.appendChild(d);
+  }
+  grid.addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (b) save(p, +b.dataset.i); });
+  head.querySelector("#copy").addEventListener("click", e => copy(p.caption, e.currentTarget));
+  head.querySelector("#saveall").addEventListener("click", async () => { for (let i = 1; i <= SLIDES; i++){ if (!(await save(p, i))) break; } });
+  head.querySelector("#done").addEventListener("click", () => markPosted(p));
+  list.slice(1).forEach(x => { const r = document.createElement("div"); r.innerHTML = `<span></span><span>#${x.id.split("-")[1]}</span>`; r.firstChild.textContent = x.title; q.appendChild(r); });
+  if (list.length === 1) q.innerHTML = `<div><span>Nothing else queued yet</span><span></span></div>`;
+}
+
+async function copy(text, btn){
+  try { await navigator.clipboard.writeText(text); btn.textContent = "Copied"; }
+  catch (e) { const r = document.createRange(); r.selectNodeContents($("#caption")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Selected, tap Copy"; }
+  setTimeout(() => btn.textContent = "Copy caption", 2000);
+}
+
+async function save(p, i){
+  if (!downloads) return false;
+  try {
+    const blob = await (await fetch(img(p,i))).blob();
+    await downloads.save({filename: `${p.id}-slide-${i}.jpg`, data: blob});
+    return true;
+  } catch (e) {
+    if (e && e.code === "declined") status("Save canceled.");
+    else if (e && e.code === "rate_limited") status("One save at a time. Try again in a moment.");
+    else status("Saving isn't available here. Press and hold the slide instead.");
+    return false;
+  }
+}
+
+async function markPosted(p){
+  posted[p.id] = true; render();
+  if (!db){ status("Marked on this screen only. Sign in to claude.ai to keep it."); return; }
+  try { await db.doc("posted/" + p.id).set({posted: true, at: new Date().toISOString()}); status(`#${p.id.split("-")[1]} marked posted.`); }
+  catch (e) { delete posted[p.id]; render(); status("Couldn't save that. Check your connection and try again."); }
+}
+
+document.querySelectorAll(".switch button").forEach(b => b.addEventListener("click", () => {
+  acct = b.dataset.acct; try { localStorage.setItem("acct", acct); } catch (e) {} render();
+}));
+
+render();
+
+(async () => {
+  const c = window.claude;
+  if (!c || !c.use){ status("Open this page in claude.ai to track what you've posted."); return; }
+  const [d, dl] = await Promise.all([c.use("db"), c.use("downloads")]);
+  downloads = dl; db = d; render();
+  if (!db){ status("Sign in to claude.ai to track what you've posted."); return; }
+  const timer = setTimeout(() => status("Still loading posted status…"), 10000);
+  db.collection("posted").onSnapshot(snap => {
+    clearTimeout(timer);
+    const next = {}; snap.docs.forEach(doc => { if (doc.data()?.posted) next[doc.id] = true; });
+    posted = next; status(""); render();
+  }, () => { clearTimeout(timer); status("Couldn't load posted status. Reopen the page to retry."); });
+})();
+</script>

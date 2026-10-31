@@ -1,2 +1,3 @@
 Queue rule: tiktok/next.txt holds the next slideshow number to send. Each send (scheduled 10:45a and 6:45p PT, or whenever Brian asks) sends that number, then increments next.txt. Always keep at least 2 built and unsent ahead of next.txt.
 06 and 07 were delivered in chat but skipped in the queue on Oct 31 (Brian asked for fresh ones).
+Post Queue page: https://claude.ai/artifact/XdQhMak9Cgjw5R4X9RZDea (source tiktok/postq/index.html; images published as img/<acct>-<nn>-<i>.jpg). Posted state lives in its db collection "posted" (doc id e.g. sparrow-08). Add new slideshows to POSTS + files and republish. BRACE slides live in bgeddes7-alt/brace-site tiktok/.
