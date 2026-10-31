@@ -1,1 +1,2 @@
 Queue rule: tiktok/next.txt holds the next slideshow number to send. Each send (scheduled 10:45a and 6:45p PT, or whenever Brian asks) sends that number, then increments next.txt. Always keep at least 2 built and unsent ahead of next.txt.
+06 and 07 were delivered in chat but skipped in the queue on Oct 31 (Brian asked for fresh ones).
