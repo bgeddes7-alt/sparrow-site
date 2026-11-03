@@ -18,7 +18,7 @@ H
 fi
 mkdir -p app-src/ios
 cp $APP/capacitor.config.json $APP/package.json $APP/publish-web.sh app-src/
-cp $APP/ios/App/App/AppDelegate.swift $APP/ios/App/App/App.entitlements $APP/ios/App/App/Base.lproj/Main.storyboard app-src/ios/
+cp $APP/ios/App/App/AppDelegate.swift $APP/ios/App/App/App.entitlements $APP/ios/App/App/Base.lproj/Main.storyboard $APP/ios/App/App/SceneDelegate.swift app-src/ios/
 npx wrangler deploy
 git add -A
 git commit -m "Sparrow web layer at /app + app shell source" || true

@@ -110,5 +110,7 @@ class SparrowViewController: CAPBridgeViewController {
     override open func capacitorDidLoad() {
         bridge?.registerPluginInstance(AppleAuthPlugin())
         CAPLog.print("⚡️  AppleAuth plugin registered")
+        webView?.scrollView.bounces = true
+        webView?.scrollView.alwaysBounceVertical = true
     }
 }
