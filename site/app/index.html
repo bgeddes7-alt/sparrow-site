@@ -440,7 +440,7 @@ function pushProgress(){
     await sb.from("progress").upsert({user_id:session.user.id,data:{streak:S.streak,last:S.last,done:S.done,fr:S.freeRounds},updated_at:new Date().toISOString()});}catch(e){}},800);
 }
 /* ---------- Sign in with Apple ---------- */
-function applePlugin(){const C=window.Capacitor;if(!isNative())return null;return (C.Plugins&&C.Plugins.AppleAuth)||(C.registerPlugin?C.registerPlugin("AppleAuth"):null);}
+function applePlugin(){const C=window.Capacitor;if(!isNative())return null;if(C.Plugins&&C.Plugins.AppleAuth)return C.Plugins.AppleAuth;if(C.nativePromise)return {authorize:o=>C.nativePromise("AppleAuth","authorize",o||{})};return C.registerPlugin?C.registerPlugin("AppleAuth"):null;}
 const hex=b=>Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,"0")).join("");
 async function signInApple(){
   if(S.signing)return;
