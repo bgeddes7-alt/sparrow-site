@@ -42,8 +42,8 @@
 
 *{box-sizing:border-box}
 html,body{min-height:100%;margin:0}
-html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
-body{-webkit-user-select:none;user-select:none;overscroll-behavior-y:none}
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;background:var(--bg)}
+body{-webkit-user-select:none;user-select:none}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
 .app{max-width:460px;margin:0 auto;padding-inline:16px;padding-block:calc(14px + env(safe-area-inset-top,0px)) calc(104px + env(safe-area-inset-bottom,0px))}
 h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;letter-spacing:-.01em}
@@ -444,7 +444,7 @@ function applePlugin(){const C=window.Capacitor;if(!isNative())return null;retur
 const hex=b=>Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,"0")).join("");
 async function signInApple(){
   if(S.signing)return;
-  const A=applePlugin();if(!A){S.msg="Sign in works in the Sparrow iPhone app.";render();return;}
+  const A=applePlugin();if(!A){S.msg="Connect to the internet, then try again.";render();return;}
   if(!sb||S.offline)await boot();
   if(!sb||S.offline){S.msg="Can't reach Sparrow right now. Check your connection and try again.";render();return;}
   S.signing=true;S.msg="";render();
