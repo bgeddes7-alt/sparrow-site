@@ -1,0 +1,7 @@
+{
+  "appId": "com.geddesventures.sparrow",
+  "appName": "Sparrow",
+  "webDir": "www",
+  "server": { "url": "https://sparrowmahjong.app/app/", "errorPath": "index.html" },
+  "ios": { "contentInset": "never", "backgroundColor": "#F2EFF6", "scrollEnabled": true }
+}

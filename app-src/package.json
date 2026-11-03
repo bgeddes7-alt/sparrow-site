@@ -1,0 +1,19 @@
+{
+  "name": "sparrow",
+  "version": "1.0.0",
+  "description": "Sparrow: Learn Mahjong (iOS)",
+  "scripts": {
+    "sync": "cap sync ios",
+    "open": "cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/cli": "^8.5.2",
+    "@capacitor/core": "^8.5.2",
+    "@capacitor/ios": "^8.5.2",
+    "@fontsource/figtree": "^5.3.0",
+    "@fontsource/young-serif": "^5.3.0",
+    "@revenuecat/purchases-capacitor": "^13.7.0",
+    "@supabase/supabase-js": "^2.118.0"
+  },
+  "private": true
+}
