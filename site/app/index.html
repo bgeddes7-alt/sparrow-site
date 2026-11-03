@@ -567,7 +567,7 @@ function maybeAskReview(score,total){
     const lessons=S.done.filter(id=>id!=="practice").length;
     if(lessons<2||!total||score/total<0.6)return;
     const last=store.get("revAsk",0);if(Date.now()-last<120*864e5)return;
-    const C=window.Capacitor;const R=(C.Plugins&&C.Plugins.InAppReview)||(C.registerPlugin?C.registerPlugin("InAppReview"):null);
+    const C=window.Capacitor;const R=(C.Plugins&&C.Plugins.InAppReview)||(C.nativePromise?{requestReview:()=>C.nativePromise("InAppReview","requestReview",{})}:null);
     if(!R)return;store.set("revAsk",Date.now());
     setTimeout(()=>{try{R.requestReview()}catch(e){}},1500);
   }catch(e){}
