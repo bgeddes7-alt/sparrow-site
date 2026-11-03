@@ -54,17 +54,21 @@ public class AppleAuthPlugin: CAPPlugin, CAPBridgedPlugin, ASAuthorizationContro
         CAPPluginMethod(name: "authorize", returnType: CAPPluginReturnPromise)
     ]
     private var pending: CAPPluginCall?
+    private var controller: ASAuthorizationController?
 
     @objc func authorize(_ call: CAPPluginCall) {
+        CAPLog.print("⚡️  AppleAuth authorize called")
         let request = ASAuthorizationAppleIDProvider().createRequest()
         request.requestedScopes = [.fullName, .email]
         if let hashed = call.getString("nonce") { request.nonce = hashed }
+        call.keepAlive = true
         pending = call
         DispatchQueue.main.async {
-            let controller = ASAuthorizationController(authorizationRequests: [request])
-            controller.delegate = self
-            controller.presentationContextProvider = self
-            controller.performRequests()
+            let c = ASAuthorizationController(authorizationRequests: [request])
+            c.delegate = self
+            c.presentationContextProvider = self
+            self.controller = c
+            c.performRequests()
         }
     }
 
@@ -73,8 +77,10 @@ public class AppleAuthPlugin: CAPPlugin, CAPBridgedPlugin, ASAuthorizationContro
     }
 
     public func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        self.controller = nil
         guard let call = pending else { return }
         pending = nil
+        call.keepAlive = false
         guard let cred = authorization.credential as? ASAuthorizationAppleIDCredential,
               let tokenData = cred.identityToken,
               let token = String(data: tokenData, encoding: .utf8) else {
@@ -90,8 +96,11 @@ public class AppleAuthPlugin: CAPPlugin, CAPBridgedPlugin, ASAuthorizationContro
     }
 
     public func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        self.controller = nil
+        CAPLog.print("⚡️  AppleAuth error: \(error.localizedDescription)")
         guard let call = pending else { return }
         pending = nil
+        call.keepAlive = false
         let code = (error as? ASAuthorizationError)?.code
         call.reject(code == .canceled ? "canceled" : error.localizedDescription, code == .canceled ? "CANCELED" : "FAILED")
     }
@@ -100,5 +109,6 @@ public class AppleAuthPlugin: CAPPlugin, CAPBridgedPlugin, ASAuthorizationContro
 class SparrowViewController: CAPBridgeViewController {
     override open func capacitorDidLoad() {
         bridge?.registerPluginInstance(AppleAuthPlugin())
+        CAPLog.print("⚡️  AppleAuth plugin registered")
     }
 }

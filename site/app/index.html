@@ -451,7 +451,7 @@ async function signInApple(){
   try{
     const raw=hex(crypto.getRandomValues(new Uint8Array(16)));
     const hashed=hex(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(raw)));
-    const r=await A.authorize({nonce:hashed});
+    const r=await Promise.race([A.authorize({nonce:hashed}),new Promise((_,rej)=>setTimeout(()=>rej(new Error("timeout")),90000))]);
     const cred={provider:"apple",token:r.identityToken,nonce:raw};
     const {data:{session}}=await sb.auth.getSession();
     let res;
