@@ -21,5 +21,7 @@ Rule source 11-12: poblib.librarycalendar.com JOKERS.pdf and CALLING & DECLARING
 Rule source 13: poblib.librarycalendar.com JOKERS.pdf rules 3 (thrown joker is called as the previous discard), 5 (discarded = named or touches the table; can't take back), 8 (can't exchange for a joker to claim the last discard for an exposure or Mahjong); flowers fill F per 08.
 14: Which 3 did you pick before you swiped? Comment them. Save this for your first Charleston. #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong
 Rule source 14: first Charleston pass goes right, jokers never passed (04 source, Wikipedia). Hand and pick are the real Sparrow practice-table screen (site/img/04-table_expert.jpg, cropped to rack-04.jpg); strategy is the app expert's own line.
-15: Your 15-minute refresh the night before mahj. Save it for next week. What's the one thing you'd least like to be asked? #mahjong #americanmahjong #mahjongtiktok #mahjnight #learnmahjong
+15: How to prep the night before mahj night in 15 minutes.
 Rule source 15: no rule claims (prep routine, real app screens ph-01..04).
+16: American mahjong Charleston rules beginners get wrong.
+Rule source 16: https://en.wikipedia.org/wiki/American_mahjong (Charleston: second Charleston only if all players agree, reverse order left/across/right; blind pass only on last pass of each Charleston, still 3 tiles; courtesy pass 0 to 3 tiles across, the two players agree). Jokers never passed per 04-05 source.
