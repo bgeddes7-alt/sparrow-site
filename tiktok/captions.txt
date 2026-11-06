@@ -25,3 +25,5 @@ Rule source 14: first Charleston pass goes right, jokers never passed (04 source
 Rule source 15: no rule claims (prep routine, real app screens ph-01..04).
 16: American mahjong Charleston rules beginners get wrong.
 Rule source 16: https://en.wikipedia.org/wiki/American_mahjong (Charleston: second Charleston only if all players agree, reverse order left/across/right; blind pass only on last pass of each Charleston, still 3 tiles; courtesy pass 0 to 3 tiles across, the two players agree). Jokers never passed per 04-05 source.
+17: American mahjong calling rules: who gets the discard?
+Rule source 17: stljewishlight.org "This Week in Mah Jongg: Playing the Game (Part 2)" (two callers: closest to discarder in turn order unless the other has begun exposing; Mahjong call beats exposure call; call only the most recent discard, only until the next player racks; exposure can be edited during the current turn before discarding, locked after)
