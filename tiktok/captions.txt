@@ -33,3 +33,7 @@ Rule source 18: https://en.wikipedia.org/wiki/American_mahjong (pair 2, pung 3, 
 Rule source 19: guide.americanmahjonggassociation.com/how-to-play-american-mah-jongg/dead-hand/ (American Mah Jongg Association rulebook: dead hand still pays the winner; player who realizes own hand is dead should not announce it, keeps playing until challenged; challenge based solely on exposures and discards; once declared dead, no more picks or discards). Format D.
 20: How to get better at American mahjong after your first mahj night.
 Rule source 20: no rule claims (practice routine, real app screens ph-01..04). Format A.
+21: American mahjong rules for calling Mahjong that beginners get wrong.
+Rule source 21: poblib.librarycalendar.com/sites/default/files/2022-04/CALLING%20%26%20DECLARING%20MJ.pdf (14th tile may be called from a discard even for a single or pair, even in a C hand; joker exchange can't be used for a single or pair; Mahjong in error: caller's hand dead and out of the game, play continues; any player who exposed or threw in her hand is dead too). Format B.
+22: American mahjong discard strategy: which tile do you throw?
+Rule source 22: no rule claims. Hand and pick are the real Sparrow practice-table review screen (site/img/03-table_review.jpg, cropped to rack-03.jpg): expert would discard 4 Bam (8 away) instead of 8 Crak (9 away), closest Three Steps. Rack slide adds back the thrown 8 Crak (14 tiles). Format E.
